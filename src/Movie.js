@@ -9,6 +9,11 @@ function Movie({title, year, summary, poster, genres}){ //state 필요없음 => 
       <div class="movie__data">
         <h3 class="movie__title">{title}</h3>
         <h5 class="movie__year">{year}</h5>
+        <ul>
+          {genres.map((genre, index) => {
+            return <li key={index} className="movie__genre">{genre}</li>;
+          })}
+        </ul>
         <p class="movie__summary">{summary}</p>
       </div>
     </div>
