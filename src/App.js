@@ -24,18 +24,29 @@ class App extends React.Component {
 
   render() { //함수가 아니라 return 대신 render()
     const {isLoading, movies} = this.state;
-    return <div>{isLoading? 'Loading...' : movies.map((movie) => {
-      console.log(movie);
-      return <Movie
-        key={movie.id}
-        id={movie.id}
-        year={movie.year}
-        title={movie.title}
-        summary={movie.summary}
-        poster={movie.medium_cover_image}
-      />;
-    })}</div>
+    return <section className="container">
+    {isLoading ? (
+      <div className="loader">
+        <span class="loader__text">'Loading...'</span> 
+      </div>
+    )
+    : (
+      <div class="movies">
+            {
+              movies.map(movie => (
+                <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres} />
+                ))
+            }
+      </div>
+    )}
+  </section>  
   }
 }
-
 export default App;

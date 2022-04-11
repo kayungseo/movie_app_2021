@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-function Movie({id, title, year, summary, poster}){ //state 필요없음 => 함수형 컴포넌트로 작성 
+function Movie({id, title, year, summary, poster, genres}){ //state 필요없음 => 함수형 컴포넌트로 작성 
   return <h1>{title}</h1>;
 }
 
@@ -11,6 +11,7 @@ Movie.propTypes = {
   title : PropTypes.string.isRequired,
   summary : PropTypes.string.isRequired,
   poster : PropTypes.string.isRequired,
+  genres : PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 
